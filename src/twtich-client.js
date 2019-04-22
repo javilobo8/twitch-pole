@@ -68,4 +68,4 @@ async function getUserIds(login) {
 exports.subscribe = subscribe;
 exports.unsubscribe = unsubscribe;
 exports.getUserIds = getUserIds;
-getUserIds('drdisrespect').then(console.log)
+// getUserIds('drdisrespect').then(console.log)
