@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { subscribe } = require('./twtich-client');
+const { subscribe, unsubscribe } = require('./twtich-client');
 const app = require('./app');
 const tmi = require('./tmi');
 
@@ -10,6 +10,7 @@ function main() {
   tmi.connect();
 
   async function next() {
+    await unsubscribe(process.env.TWITCH_CHANNEL_ID);
     await subscribe(process.env.TWITCH_CHANNEL_ID);
     console.log('Subscribed!');
     setTimeout(next, interval);

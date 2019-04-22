@@ -21,7 +21,7 @@ async function sendPole() {
 app.get('/twitch-webhook', (req, res) => {
   console.log(req.query);
 
-  if (req.query['hub.mode'] === 'subscribe') {
+  if (req.query['hub.challenge']) {
     res.send(req.query['hub.challenge']);
   } else {
     res.send('');
