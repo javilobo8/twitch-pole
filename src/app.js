@@ -29,7 +29,7 @@ app.get('/twitch-webhook', (req, res) => {
 });
 
 app.post('/twitch-webhook', (req, res) => {
-  console.log(req);
+  console.log(req.body);
   res.send('');
 });
 
