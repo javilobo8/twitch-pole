@@ -21,13 +21,11 @@ async function sendPole(body) {
 app.get('/twitch-webhook', (req, res) => {
   console.log(req.query);
 
-  Promise.resolve()
-    // .then(() => sendPole(req.body))
-    .then(() => res.send('Ok!'))
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send();
-    });
+  if (req.query['hub.mode'] === 'subscribe') {
+    res.send(req.query['hub.challenge']);
+  } else {
+    res.send('');
+  }
 });
 
 module.exports = app;

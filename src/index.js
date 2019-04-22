@@ -10,7 +10,7 @@ function main() {
   tmi.connect();
 
   async function next() {
-    await subscribe(process.env.TWITCH_CHANNEL);
+    await subscribe(process.env.TWITCH_CHANNEL_ID);
     console.log('Subscribed!');
     setTimeout(next, interval);
   }
