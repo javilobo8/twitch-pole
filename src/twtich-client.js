@@ -26,7 +26,7 @@ function subscribe(userId) {
       'hub.callback': process.env.WEBHOOK_CALLBACK,
       'hub.mode': HUB_MODE.SUBSCRIBE,
       // 'hub.topic': `https://api.twitch.tv/helix/streams?user_id=${userId}`,
-      'hub.topic': `https://api.twitch.tv/users/follows?first=1&to_id=${userId}`,
+      'hub.topic': `https://api.twitch.tv/helix/users/follows?first=1&to_id=${userId}`,
       'hub.lease_seconds': process.env.WEBHOOK_LEASE_SECONDS || 0,
       'hub.secret': process.env.WEBHOOK_SECRET,
     },
