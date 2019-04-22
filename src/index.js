@@ -5,13 +5,14 @@ const app = require('./app');
 const tmi = require('./tmi');
 
 function main() {
+  const interval = process.env.WEBHOOK_LEASE_SECONDS * 1000;
+
   tmi.connect();
-  const interval = process.env.WEBHOOK_LEASE_SECONDS;
 
   async function next() {
     await subscribe(process.env.TWITCH_CHANNEL);
     console.log('Subscribed!');
-    setTimeout(next, interval * 100000);
+    setTimeout(next, interval);
   }
 
   next();
